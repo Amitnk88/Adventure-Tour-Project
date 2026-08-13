@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Here</title>
+    <link rel="icon" href="./assets/files/logo.png" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/booking.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .logo {
+            height: 50px;
+        }
+        .navbar {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+        .navbar li {
+            display: inline;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #007bff;
+        }
+        body {
+            padding-top: 70px; /* Adjust to account for the height of the fixed nav */
+            background: url('assets/files/p.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <nav>
+            <img src="./assets/files/logo.png" class="logo" alt="Logo" title="FirstFlight Travels">
+            <ul class="navbar">
+                <li>                  
+                    <a href="intern.html">Customer Details</a>           
+                </li>
+                <li>                  
+                    <a href="allCustomerPage.html">All Customers</a>           
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #9292c2;
+            color: #333;
+            margin: 0px;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background-color: #63ace8;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom:40px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 4px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .download-button {
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: white(198, 23, 23);
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .download-button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title">All Bookings Till Now</div>
+    <div id="bookingTableContainer"></div>
+    <button class="download-button" onclick="downloadExcel()">Download </button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+<script>
+    async function fetchBookings() {
+        try {
+            const response = await fetch('http://localhost:3000/bookings');
+            const data = await response.json();
+
+            if (data.success && data.bookings.length > 0) {
+                let tableHTML = `
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer Name</th>
+                            <th>Location</th>
+                            <th>Check-in Date</th>
+                            <th>Check-out Date</th>
+                            <th>Accommodation Type</th>
+                            <th>Phone No</th>
+                            <th>code</th>
+
+                        </tr>
+                `;
+
+                data.bookings.forEach(booking => {
+                    tableHTML += `
+                        <tr>
+                            <td>${booking.id}</td>
+                            <td>${booking.first_name} ${booking.last_name}</td>
+                            <td>${booking.Location}</td>
+                            <td>${booking.check_in_date}</td>
+                            <td>${booking.check_out_date}</td>
+                            <td>${booking.accommodation_type}</td>
+                            <td>${booking.phone_number}</td>
+                            <td>${booking.code}</td>
+                        </tr>
+                    `;
+                });
+
+                tableHTML += `</table>`;
+                document.getElementById('bookingTableContainer').innerHTML = tableHTML;
+            } else {
+                document.getElementById('bookingTableContainer').innerHTML = '<p>No bookings found.</p>';
+            }
+        } catch (error) {
+            document.getElementById('bookingTableContainer').innerHTML = `<p class='error-message'>Error: ${error.message}</p>`;
+        }
+    }
+
+    function downloadExcel() {
+        const bookingTableContainer = document.getElementById('bookingTableContainer');
+        const table = bookingTableContainer.querySelector("table");
+
+        if (!table) {
+            alert("No bookings data to download");
+            return;
+        }
+
+        const workbook = XLSX.utils.table_to_book(table, { sheet: "Bookings" });
+        const excelFileName = 'all_bookings.xlsx';
+
+        XLSX.writeFile(workbook, excelFileName);
+    }
+
+    // Fetch bookings on page load
+    window.onload = fetchBookings;
+</script>
+
+</body>
+</html>

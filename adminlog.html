@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Sign Up - Tour Package</title>
+    
+    <style>
+        /* CSS Styles */ 
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('jog.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding-top: 70px; /* Adjust to account for the height of the fixed nav */
+            font-family: 'Poppins', sans-serif;
+            background: url('assets/files/p.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(104, 102, 102, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .toggle-link {
+            margin-top: 15px;
+        }
+
+        .toggle-link a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h2 id="form-title">Login</h2>
+        <div id="error-message" class="error"></div>
+        <!-- Login Form -->
+        <form id="login-form" onsubmit="return handleLogin()">
+            <div class="input-group">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" required>
+            </div>
+            <div class="input-group">
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+
+    <script>
+        // Default credentials
+        const defaultUsername = "touradmin";
+        const defaultPassword = "password123";
+
+        // Handle Login Function
+        function handleLogin() {
+            // Get input values
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Validate against default credentials
+            if (username === defaultUsername && password === defaultPassword) {
+                alert("Login successful! Welcome, " + username);
+                window.location.href = "admin.html";  // Redirect to admin page
+                return false; // Prevent form submission to avoid page reload
+            } else {
+                document.getElementById('error-message').textContent = "Invalid username or password.";
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>

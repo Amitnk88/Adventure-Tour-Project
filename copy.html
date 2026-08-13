@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .code {
+            font-size: 24px;
+            color: #333;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px dashed #ccc;
+            display: inline-block;
+        }
+        .btn-copy {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-copy:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Confirmed!</h1>
+        <p>Thank you for your booking. Please save your booking code below:</p>
+        <div class="code" id="bookingCodeDisplay">Loading...</div>
+        <button class="btn-copy" onclick="copyCode()">Copy Booking Code</button>
+    </div>
+
+    <script>
+        // Retrieve the booking code from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookingCode = urlParams.get('code');
+
+        // Display the booking code
+        const codeDisplay = document.getElementById('bookingCodeDisplay');
+        if (bookingCode) {
+            codeDisplay.innerText = bookingCode;
+        } else {
+            codeDisplay.innerText = "No booking code found.";
+        }
+
+        // Copy the booking code to the clipboard
+        function copyCode() {
+            if (bookingCode) {
+                navigator.clipboard.writeText(bookingCode).then(() => {
+                    alert("Booking code copied to clipboard!");
+                }).catch(err => {
+                    alert("Failed to copy booking code. Please try manually.");
+                });
+            } else {
+                alert("No booking code to copy.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "tour-project",
+  "version": "1.0.0",
+  "description": "Welcome to Adventour, a travel website crafted to help you to embark on extraordinary journeys. We use the power of HTML, CSS, and a pinch of JavaScript to create a visually captivating and user-friendly experience.  <br/> Adventour is an open-source project; we welcome you to explore its codebase and contributeirrespective of whether you're a seasoned developer or just a beginner. Adventour serves as a valuable learning tool to hone your skills and expand your creativity <br />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.7.3",
+    "mysql2": "^3.11.3"
+  }
+}

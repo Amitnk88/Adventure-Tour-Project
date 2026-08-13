@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Confirmation</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #ticketInfo {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        #ticketInfo p {
+            margin: 10px 0;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .success-message {
+            color: #2ecc71;
+        }
+
+        .download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .download-button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title">Ticket Confirmation</div>
+    <p>Enter your ticket code to confirm your booking:</p>
+    <input type="text" id="ticketCode" placeholder="Enter ticket code" />
+    <button onclick="confirmTicket()">Confirm Ticket</button>
+
+    <div id="ticketInfo"></div>
+
+    <!-- Download button -->
+    <button class="download-button" id="downloadButton" onclick="downloadPDF()">Download PDF</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+     async function confirmTicket() {
+            const code = document.getElementById('ticketCode').value.trim();
+
+            // Check if ticket code is empty
+            if (!code) {
+                document.getElementById('ticketInfo').innerHTML = "<p class='error-message'>Please enter a ticket code.</p>";
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:3000/confirm-ticket?code=${encodeURIComponent(code)}`);
+                const data = await response.json();
+
+                const ticketInfoDiv = document.getElementById('ticketInfo');
+
+                // Display ticket information if valid
+                if (data.success && data.ticket) {
+                    ticketInfoDiv.innerHTML = `
+                        <p><strong>Ticket Code:</strong> ${data.ticket.code}</p>
+                        <p><strong>Customer Name:</strong> ${data.ticket.first_name} ${data.ticket.last_name}</p>
+                        <p><strong>Location:</strong> ${data.ticket.Location}</p>
+                        <p><strong>Phone Number:</strong> ${data.ticket.phone_number}</p>
+                        <p><strong>Email:</strong> ${data.ticket.email}</p>
+                        <p><strong>Check-in Date:</strong> ${data.ticket.check_in_date}</p>
+                        <p><strong>Check-out Date:</strong> ${data.ticket.check_out_date}</p>
+                        <p><strong>Guide:</strong> ${data.ticket.Guide}</p>
+                        <p><strong>Accommodation Type:</strong> ${data.ticket.accommodation_type}</p>
+                        <p><strong>Number of Rooms:</strong> ${data.ticket.number_of_rooms}</p>
+                        <p><strong>Room Type:</strong> ${data.ticket.room_type}</p>
+                        <p><strong>Additional Requests:</strong> ${data.ticket.additional_requests}</p>
+                        <p><strong>Total Amount:</strong> ${data.ticket.totalAmt}</p>
+                    `;
+                    ticketInfoDiv.classList.add('success-message');
+                    ticketInfoDiv.classList.remove('error-message');
+                    document.getElementById('downloadButton').style.display = 'inline-block';
+                } else {
+                    ticketInfoDiv.innerHTML = `<p class='error-message'>${data.message || 'Invalid ticket code.'}</p>`;
+                    ticketInfoDiv.classList.add('error-message');
+                    ticketInfoDiv.classList.remove('success-message');
+                    document.getElementById('downloadButton').style.display = 'none';
+                }
+            } catch (error) {
+                document.getElementById('ticketInfo').innerHTML = `<p class='error-message'>Error: ${error.message}</p>`;
+            }
+
+        }
+        function downloadPDF() {
+    const ticketInfoDiv = document.getElementById('ticketInfo');
+    const ticketDetails = Array.from(ticketInfoDiv.getElementsByTagName('p'))
+        .map(p => p.textContent)
+        .join('\n');
+
+    const currentDate = new Date();
+    const formattedDate = currentDate.toLocaleString();
+    const companyName = 'Adventour Tour';
+
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Draw a header with background color
+    doc.setFillColor(0, 102, 204);
+    doc.rect(0, 0, 210, 30, 'F');
+
+    // Header text
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(20);
+    doc.text(companyName, 10, 20);
+
+    // Subtitle
+    doc.setFontSize(12);
+    doc.text('Travel Ticket Details', 10, 28);
+
+    // Date and separator line
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(12);
+    doc.text(`Date: ${formattedDate}`, 150, 28, { align: 'right' });
+    doc.setDrawColor(0);
+    doc.setLineWidth(0.5);
+    doc.line(10, 35, 200, 35);
+
+    // Ticket details section with styled lines
+    const lines = ticketDetails.split('\n');
+    let yPosition = 45;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(12);
+
+    lines.forEach((line, index) => {
+        if (index % 2 === 0) {
+            // Alternating background color for better readability
+            doc.setFillColor(230, 240, 255);
+            doc.rect(10, yPosition - 4, 190, 8, 'F');
+        }
+        doc.text(line, 12, yPosition);
+        yPosition += 10;
+    });
+
+    // Footer section
+    doc.setFontSize(10);
+    doc.setTextColor(100);
+    doc.text('Thank you for choosing Adventour Tour. Safe travels!', 10, 280);
+
+    // Save the PDF
+    doc.save('Travel_ticket.pdf');
+}
+
+
+
+</script>
+
+</body>
+</html>

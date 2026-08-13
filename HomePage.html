@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventour</title>
+    <link rel="icon" href="./assets/files/logo.png">
+    <!-- index.html -->
+    
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!-- index.html -->
+
+
+    <link rel="stylesheet" type="text/css" href="./assets/css/reg.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+
+<body>
+
+    <!-- Background Video & Header -->
+
+    <div class="banner">
+        <video src="./assets/files/bg1.mp4" type="video/mp4" autoplay muted loop></video>
+
+        <!-- Header -->
+        
+
+        <div class="content" id="home">
+            <nav>
+                <img src="./assets/files/logo.png" class="logo" alt="Logo" title="FirstFlight Travels">
+                <ul class="navbar">
+                    <li>
+                        <a href="#home">Home</a>
+                        <a href="#package">Packages</a>
+                        <a href="#locations">Locations</a>
+                        <a href="./adminlog.html">Admin</a>
+                        <a href="./contact.html">Contact Us</a>
+                        
+
+                    </li>
+                </ul>
+                </form>
+            </nav>
+              
+
+            <div class="title">
+                <h1>ADVENTOUR</h1>
+                <p>See the World for Less! Explore Amazing Destinations with Our Budget-Friendly Packages.  </p>
+
+                <div class="wrapper">
+                    <form action="#">
+                        <div class="h5 font-weight-bold text-center mb-3" >Search your Destination</div>
+                        <div class="destination">
+                            <label for="city" >Enter your destination</label>
+                          </div>
+                          
+                        <div class="form-group ">
+                            <input type="text" class="form-control" placeholder="Enter Your Name">
+                        </div>
+                        <div class="destination">
+                            <label for="city" >Enter your date</label>
+                        </div>
+                        <div class="form-group">
+                            <input autocomplete="off" type="date" class="form-control" placeholder="Select your date">
+                        </div>
+                        <div class="form-group">
+                            <div class="lable_total flex">
+                                  <label class="destination"  for="price">Max Price : <span id="result">2500</span> 
+                                </label>
+                            </div>
+                            <input id="mySlider" type="range" min="0" max="10000" value="2500"  style="width: 215px;">
+                            <script>
+                                mySlider.oninput = showSliderValue;
+                                function showSliderValue() {
+                                    result.innerText = this.value;
+                                }
+                            </script>
+                        </div>
+                    </form>
+                </div>
+
+                <a href="./booking.html" class="button">
+                    <span class="material-symbols-outlined">
+                        how_to_reg
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+
+    <section class="container">
+        <div class="text">
+            <h2>We have the best services available for you!</h2>
+        </div>
+        <div class="rowitems">
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="./assets/files/1a.jpg" alt="Flight Services">
+                </div>
+                <h4>Flight Services</h4>
+                <p>Arrival and Departure</p>
+            </div>
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="./assets/files/2a.jpg" alt="Food Services">
+                </div>
+                <h4>Food Services</h4>
+                <p>Catering</p>
+            </div>
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="./assets/files/3a.jpg" alt="Travel Services">
+                </div>
+                <h4>Travel Services</h4>
+                <p>Pick-up/drop</p>
+            </div>
+
+            <div class="container-box">
+                <div class="container-image">
+                    <img src="./assets/files/4a.jpg" alt="Hotel Services">
+                </div>
+                <h4>Hotel Services</h4>
+                <p>Check-in/out</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages -->
+
+    <section class="package" id="package">
+        <div class="package-title">
+            <h2>Packages</h2>
+        </div>
+
+        <div class="package-content">
+            <div class="text-block">
+                <h3>Best Selling Destinations</h3>
+            </div>
+
+            <a href="./package.html#2700">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/mysoru.jpg" alt="">
+                        <h3>Starting at Rs.9,999 </h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./package.html#4999">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/bengloru.jpg" alt="">
+                        <h3>Starting at Rs.8,999</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./package.html#9999">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/jog.png" alt="">
+                        <h3>Starting at Rs.9,999</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./package.html#30000">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/hampi.jpg" alt="">
+                        <h3>Starting at Rs.12,000</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./package.html#37700">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/murudeshwar.jpg" alt="">
+                        <h3>Starting at Rs.7,700/-</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./package.html#47500">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/mir.png" alt="">
+                        <h3>Starting at Rs.9,500/-</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./package.html#58500">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/chikkama.jpg" alt="">
+                        <h3>Starting at Rs.8,500/-</h3>
+                    </div>
+                </div>
+            </a>
+
+            <a href="./package.html#59500">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/beluru.jpg" alt="">
+                        <h3>Starting at Rs.6,500/-</h3>
+                    </div>
+                </div>
+            </a>
+            
+
+        </div>
+    </section>
+
+    <section>
+        <br><br>
+        <div class="pack4-content">
+            <div style="text-align:center">
+                <button type="button" class="btn btn-primary"><a href="./booking.html"><JavaBlink>Book Now</JavaBlink></a></button>
+            </div>
+        </div><br><br>
+    </section>
+
+    <section class="package2" id="package">
+        <div class="pack5-content">
+
+            <div class="text-block">
+                <h3>Bestsellers at EPIC Discounts</h3>
+                <p>Grab our top-selling packages at unbelievable prices. Get 50% OFF on top sightseeing's , 
+                    & more!!</p>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    
+                    <video src="./assets/files/shivmogga.mp4" type="video/mp4" autoplay muted loop></video>
+                    <h3>SHIVAMOGGA</h3>
+                </div>
+            </div>
+            <div class="box">
+                <div class="image">
+                    
+                    <video src="./assets/files/chikkamaglou.mp4" type="video/mp4" autoplay muted loop></video>
+                    <h3>CHIKKAMAGALURU</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                   
+                    <video src="./assets/files/mysore.mp4" type="video/mp4" autoplay muted loop></video>
+                    <h3>MYSORE
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                   
+                    <video src="./assets/files/hampi.mp4" type="video/mp4" autoplay muted loop></video>
+                    <h3>HAMPI</h3>
+                </div>
+            </div>
+
+           
+            </div>
+        </div>
+    </section><br><br>
+
+    <section class="package2" id="package">
+
+        <div class="package2-content">
+            <div class="text-block">
+                <h3>Jackpot Deals on Top Selling Packages</h3>
+                <p>Save extra with our exclusive deals!</p>
+            </div>
+
+            <a href="./assets/package.html#6000">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/mysoru.jpg" alt="">
+                        <h3> Mysore</h3>
+                    </div>
+                </div>
+            </a>
+
+            <div class="box">
+                <div class="image">
+                    <img src="./assets/files/chikkama.jpg" alt="">
+                    <h3>Chikkamagaluru</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="./assets/files/jog.jpg" alt="">
+                    <h3>Shivamogga</h3>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                    <img src="./assets/files/murudeshwar.jpg" alt="">
+                    <h3>Uttara kannada</h3>
+                </div>
+            </div>
+
+            <a href="./package.html#6000">
+                <div class="box">
+                    <div class="image">
+                        <img src="./assets/files/hampi.jpg" alt="">
+                        <h3>Hampi</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Explore Button -->
+
+        <div style="text-align:center">
+            <button type="button" class="btn btn-primary"> <a href="package.html">Explore More</a></button>
+        </div>
+    </section><br><hr><br>
+
+    <!-- Locations -->
+
+    <section class="locations" id="locations">
+        <div class="package-title">
+            <h2>Locations</h2>
+        </div>
+
+        <div class="location-content">
+            <a href="./locations.html">
+                <div class="col-content">
+                    <img src="./assets/files/jog.jpg" alt="">
+                    <h5>SHIVAMOGGA</h5>
+                    <p>JOGFALLS</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#istanbul">
+                <div class="col-content">
+                    <img src="./assets/files/mysoru.jpg" alt="">
+                    <h5>MYSORE</h5>
+                    <p>PALACE</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#paris">
+                <div class="col-content">
+                    <img src="./assets/files/murudeshwar.jpg" alt="">
+                    <h5>Uttar kannada</h5>
+                    <p>Murudeshwar</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#bali">
+                <div class="col-content">
+                    <img src="./assets/files/bengluru.plc.jpg" alt="">
+                    <h5>BENGALURU</h5>
+                    <p>BENGALURU PALACE</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#dubai">
+                <div class="col-content">
+                    <img src="./assets/files/chikkama.jpg" alt="">
+                    <h5>Chikkamagluru</h5>
+                    <p>Baba Budan giri</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#geneva">
+                <div class="col-content">
+                    <img src="./assets/files/hampi.jpg" alt="">
+                    <h5></h5>
+                    <p>Hampi</p>
+                </div>
+            </a>
+
+            <a href="./locations.html#port-blair">
+                <div class="col-content">
+                    <img src="./assets/files/bijapur.jpg" alt="">
+                    
+                    <h5>BIJAPUR</h5>
+                    <p>GOL GUMBAZ</p>
+                </div>
+            </a>
+        </div>
+    </section><br><hr>
+
+    <!-- FAQ;s -->
+
+    <section><br>
+        <div class="destination-title">
+            <h2>Best Destinations to Visit in Karnataka</h2>
+        </div>
+        <div class="container1">
+            <style>
+                .destination-title {
+                    text-align: center;
+                }
+
+                .container1 {
+                    display: grid;
+                    position: relative;
+                    grid-template-columns: auto auto auto;
+                    background: color #f6f1f1;
+                    padding: 48px;
+                    font-size: 12px;
+                    gap: 10px;
+                    margin-top: 5px;
+                    margin-left: 100px;
+                    margin-right: 100px;
+                    margin-bottom: 1px;
+
+                    .loc-detail li {
+                        font-size: 10px;
+                        color: black;
+                        margin-left: 15px;
+                        margin-bottom: 2px;
+                        list-style-type: circle;
+                    }
+
+                    .box {
+                        background: inherit;
+                        color: black;
+                        box-shadow: 5px 5px 10px #3b3737;
+                        padding: 5px;
+                        border-radius: 15px;
+                    }
+                }
+            </style>
+
+            <div class="box">
+                <h1>SHIVAMOGGA</h1>
+                <p>Shivamogga (also spelled Shimoga) is a city in the state of Karnataka, India, and serves as the administrative headquarters 
+                    of the Shivamogga district. Often referred to as the "Gateway of Malnad," Shivamogga is known for its scenic beauty,
+                     rich cultural heritage, and historical significance.
+                   
+                    <br>
+                    <br><b>Best time to visit :</b> June to January <br>
+
+                    <br> <b>Best places to visit:</b>
+                <ul class="loc-detail">
+                    <li>JOG FALLS</li>
+                    <li>GUDUVI</li>
+                    <li>SIGANDURU</li>
+                    <li>AGUMBE</li>
+                    <li>SAKKAREBAIL ELEPHANT CAMP</li>
+                    <li>KODACHADRI</li>
+                </ul>
+
+                <br> Shivamogga is an emerging urban center with well-developed infrastructure,
+                 making it an ideal base for exploring the Malnad region and its various natural attractions.
+                </p>
+            </div>
+
+            <div class="box">
+                <h1>
+                    Uttara Kannada
+                </h1>
+                <p>Uttara Kannada (or North Canara) is a district in the Indian state of Karnataka. Known for its scenic landscapes,
+                     pristine beaches, dense forests, rich cultural heritage, and beautiful temples, Uttara Kannada is a haven for nature lovers,
+                      history buffs, and adventure enthusiasts. It stretches along the Arabian Sea coast and is dotted with the Western Ghats, 
+                      making it a unique blend of coastline,
+                     forests, rivers, and hills. Here's a glimpse into what makes Uttara Kannada special:<br>
+                    <br> <b>Best time to visit:</b> September to March <br>
+
+                    <br> <b>Best places to visit:</b>
+                <ul class="loc-detail">
+                    <li>Murudeshwar Temple</li>
+                    <li>Gokarna\Om Beach</li>
+                    <li>Mirjan Fort\Yana Cave</li>
+                    <li>Kali Backwater</li>
+                    <li>Unchalli Falls</li>
+                </ul>
+                <br>
+
+                <br>
+                Uttara Kannada is a district that combines natural beauty, adventure, spirituality, and cultural heritage in a perfect blend. 
+                It’s a great destination for travelers seeking a mix of beach retreats, 
+                wildlife adventures, historical explorations, and cultural experiences
+</p>
+
+            </div>
+
+            <div class="box">
+                <h1>Mysore</h1>
+                <p>
+                    Mysore, often referred to as the "City of Palaces," is a historical and cultural gem located in the state of Karnataka, India.
+                     Known for its majestic palaces, royal heritage, and vibrant traditions, 
+                    Mysore is a major tourist destination that reflects a blend of ancient charm and modern vibrancy. 
+                    Here’s an overview of Mysore: <br>
+                    <br> <b> Best Time to Visit:</b> March to August <br>
+
+                    <br> Best Places to Visit: <br>
+                <ul class="loc-detail">
+                    <li>Mysore Palace</li>
+                    <li> Chamundi Hills</li>
+                    <li> Mysore Zoo</li>
+                    <li> Museum</li>
+                    <li> Nanjanagudu</li>
+                </ul>
+                <br>
+                <br>Mysore's blend of royal splendor, cultural richness, natural beauty, and spiritual heritage makes it a destination worth
+                 exploring. From palaces and gardens to temples and festivals, 
+                the city offers a glimpse into the glorious history of the Wodeyars, who ruled Mysore for several centuries</p>
+            </div>
+
+            <div class="box">
+                <h1>Chikkamagluru</h1>
+                <p>Chikmagalur (also spelled Chikkamagaluru) is a picturesque hill station located in the state of Karnataka, India.
+                     Known for its lush green landscapes, coffee plantations, serene hills, and waterfalls, Chikmagalur is often referred to as 
+                     the "Coffee Land of Karnataka." It offers a perfect blend of adventure, nature, and history, making it an ideal destination
+                      for nature lovers and adventure enthusiasts. Here’s a detailed overview of Chikmagalur: <br>
+                    <br> <b>Best Time to Visit:</b> March to May <br>
+
+                    <br> Best Places to Visit:
+                <ul class="loc-detail">
+                    <li> Baba Budan giri</li>
+                    <li> Kuduremuka National Park</li>
+                    <li> Kemmangundi</li>
+                    <li> Bhadra Widelife Sanctury</li>
+                </ul>
+                </p>Heaven of karnataka
+            </div>
+
+            <div class="box">
+                <h1>BENGALURU</h1>
+                <p> Bangalore (officially Bengaluru), known as the "Garden City of India," is a thriving metropolis in the southern state of Karnataka.
+                     It is renowned for its beautiful parks, vibrant culture, pleasant weather, and booming tech industry. As a tourist destination,
+                      Bangalore has something to offer everyone—be it nature lovers, history buffs, adventure 
+                    seekers, or shopaholics. Here are some of the key highlights of Bangalore tourism: <br>
+
+                    <br> <b>Best Time to Visit:</b> any time <br>
+
+                    <br> Best Places to Visit:
+                <ul class="loc-detail">
+                    <li>Vidhana Souda</li>
+                    <li> Banglore Palace</li>
+                    <li> Iscon Temple</li>
+                    <li>Lalbhag </li>
+                    <li>Electonic City Park </li>
+                </ul>
+                </p>
+            </div>
+
+            <div class="box">
+                <h1> Uttarakhand</h1>
+                <p>Uttarakhand, also known as the "Land of the Gods," 
+                    is a state in northern India renowned for its stunning natural beauty, 
+                    spiritual significance, and adventure tourism.
+                    <br>
+
+                    <br> <b> Best time to visit:</b> March to April/September to October <br>
+
+                    <br> Best places to visit:
+                <ul class="loc-detail">
+                    <li> Dehradun</li>
+                    <li> Mussoorie</li>
+                    <li> Nainital</li>
+                    <li> Auli</li>
+                    <li> Rishikesh</li>
+                </ul>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+
+        <div class="container2">
+            <style>
+                .container2 {
+                    position: relative;
+                    grid-template-columns: auto auto auto;
+                    gap: 5%;
+                    padding: 35px;
+                    margin-top: 50px;
+                    margin-left: 35px;
+                    margin-right: 34px;
+                    border-radius: 10px;
+                    font-size: 12px;
+                    color: black;
+                    background-color: white;
+                    box-shadow: 5px 5px 10px #3b3737;
+                }
+            </style>
+
+            <div> <br>
+                <h1 class="faqh1">FAQs - Frequently Asked Questions</h1>
+            </div>
+
+            <p><br>
+            <h3> What kind of destinations can I choose for travelling?</h3> <br>
+            <p> You can choose any destination for travel as per your mood. For an action-packed holiday, you can choose
+                wildlife, trekking and other adventurous destinations. For a romantic holiday with your special someone,
+                you can choose from a range of couple-friendly destinations. You can also choose the kind of holiday you
+                want based on the destination you like—whether hills, mountains, beaches, heritage or pilgrimage sites.
+            </p><br>
+            <hr>
+
+            <br>
+            <h3> Can I opt for a budget-friendly holiday?</h3><br>
+            <p>
+                Yes, you can. All you have to do is set an approximate expenditure amount in your mind before starting
+                exploring the ideas here. You can search for a suitable destination for your travel in any range from
+                Rs. 10,000 to Rs. 50,000. It is advisable to make all the bookings in advance in order to avoid change
+                in prices.</p><br>
+            <hr>
+
+            <br>
+            <h3> Which time of the year is best suited for booking a holiday?</h3><br>
+            <p>x
+                Holidays can be booked throughout the year. You only need to select the month in which you are planning
+                to travel. Our curated list of ideas is designed in such a way that you will be able to see only those
+                destinations which are most suitable for that particular month of the year. If you select a combination
+                of filters defining your month, budget and purpose of travel, you will get the appropriate destination
+                name and other details.</p><br>
+            <hr>
+
+            <br>
+            <h3>What all will I get in a holiday idea?</h3>
+            <p>Once you choose a destination, it will give you complete details of all the unique things about that
+                place that must not be missed, including most visited local sites, best places to stay and all the
+                memorable experiences that you can indulge in. You will be given multiple options of hotels, resorts and
+                guest houses to choose from depending on your budget. </p> <br>
+            <hr>
+            </p>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+
+    <section class="newsletter">
+        <div class="newstext">
+            <h2>Newsletter</h2>
+            <p>Subscribe to get offers and latest<br>updates every week!</p>
+        </div>
+
+        <div class="send">
+            <form action="">
+                <input type="email" name="emailid" placeholder="E-mail" required>
+                <input type="submit" value="Subscribe">
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <section class="footer">
+        <div class="foot">
+            <div class="footer-content">
+
+                <div class="footlinks">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="./booking.html">Register</a></li>
+                        <li><a href="./info.html">About Us</a></li>
+                        <li><a href="./contact.html">Contact Us</a></li>
+                        
+
+                    </ul>
+                </div>
+
+                <div class="footlinks">
+                    <h4>Connect</h4>
+                    <div class="social">
+                        <a href="https://www.facebook.com/profile.php?id=100007787415175" target="_blank"><i
+                                class='bx bxl-facebook'></i></a>
+                        <a href="https://www.instagram.com/iamit010/" target="_blank"><i
+                                class='bx bxl-instagram'></i></a>
+                        <a href="https://twitter.com/sarcasmit_" target="_blank"><i class='bx bxl-twitter'></i></a>
+                        <a href="https://www.linkedin.com/in/amit-kumar-singh-475b36212/" target="_blank"><i
+                                class='bx bxl-linkedin'></i></a>
+                        <a href="https://github.com/iamit010" target="_blank"><i class='bx bxl-github'></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="end">
+            <p>Copyright © 2024 Adventour All Rights Reserved.<br>Website developed by: MY team010</p>
+        </div>
+    </section>
+ <SCRIPT type="text/javascript">
+        function JavaBlink() {
+           var blinks = document.getElementsByTagName('JavaBlink');
+           for (var i = blinks.length - 1; i >= 0; i--) {
+              var s = blinks[i];
+              s.style.visibility = (s.style.visibility === 'visible') ? 'hidden' : 'visible';
+           }
+           window.setTimeout(JavaBlink, 500);
+        }
+        if (document.addEventListener) document.addEventListener("DOMContentLoaded", JavaBlink, false);
+        else if (window.addEventListener) window.addEventListener("load", JavaBlink, false);
+        else if (window.attachEvent) window.attachEvent("onload", JavaBlink);
+        else window.onload = JavaBlink;
+      </SCRIPT>
+</body>
+
+</html>
